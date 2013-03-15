@@ -88,6 +88,7 @@
             var link = ( $el.data('link') ) ? $el.data('link') : window.location.href;
             var title = ( $el.data('title') ) ? $el.data('title') : document.title;
             var via = ( this.options.twitter.handle ) ? '&via=' + this.options.twitter.handle : '';
+            var hashtags = ( $el.data('hashtags') ) ? '&hashtags=' + $el.data('hashtags') : '';
 
             var width = 550;
             var height = 450;
@@ -95,10 +96,13 @@
             var topPosition = ( screen.height / 2 ) - ( height / 2 );
 
             url = 'https://twitter.com/share?url=' + encodeURIComponent( link ) +
-                '&text=' + encodeURIComponent( title ) + via;
+                '&text=' + encodeURIComponent( title )  + via + hashtags;
 
             window.open(url, 'twshare', 'width='+width+', height='+height+', top='+topPosition+', left='+leftPosition+', menubar=no, status=no, toolbar=no, ');
 
+        },
+        googleplus: function ( $el ) {
+            // TODO
         },
         events: function() {
 
