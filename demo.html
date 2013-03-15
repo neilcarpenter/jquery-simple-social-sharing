@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Super simple social sharings with jQueries demo</title>
+</head>
+<body>
+	
+	<h1>Super simple social sharings with jQueries demo</h1>
+	
+	<p><a href="https://github.com/neilcarpenter/jquery-simple-social-sharing" target="_blank">Github linkz here.</a></p>
+	
+	<section>
+		
+		<ul class="sharers">
+			<li><a data-share="facebook" data-title="Check this, yo" data-link="http://gizoogle.net" data-description="Nice, very nice" href="https://www.facebook.com/sharer/sharer.php?u=gizoogle.net" target="_blank">Oh hai Facebook</a></li>
+			<li><a data-share="twitter" data-title="Check this, yo" data-link="http://gizoogle.net" href="http://www.twitter.com/share?url=http://www.gizoogle.net/" target="_blank">Oh hai Twitter</a></li>
+		</ul>
+		
+	</section>
+	
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script src="jquery.socialSharers.js"></script>
+
+	<script>
+
+		$(function() {
+
+			$('.sharers').socialSharers({
+				twitter: {
+					handle: 'neilcarpenter'
+				},
+				facebook: {
+					//appID: 'YOUR APP ID HERE'
+				}
+			});
+
+		});
+
+	</script>
+	
+</body>
+</html>
