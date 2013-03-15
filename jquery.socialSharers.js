@@ -13,8 +13,13 @@
         },
         facebook: {
             appID: null
+        },
+        googleplus: {
+            // NA
         }
     };
+
+    var width, height, pos, url, link, title;
 
     function SocialSharers(element, options) {
 
@@ -23,6 +28,26 @@
         this._defaults = defaults;
         this._name = pluginName;
         this.init();
+
+    }
+
+    /**
+     * Return a new, centered popup based on the
+     * specified width and height.
+     *
+     */
+    function newPosition(width, height) {
+
+        var position = {};
+
+        // parseInt incase we're dealing with strings
+        width = parseInt(width, 10) || 500;
+        height = parseInt(height, 10) || 500;
+
+        position.left = ( screen.width / 2 ) - ( width / 2 );
+        position.top = ( screen.height / 2 ) - ( height / 2 );
+
+        return position;
 
     }
 
@@ -53,12 +78,11 @@
         },
         facebook: function( $el ) {
 
-            var link = $el.data('link') || window.location.href;
-            var obj, url, width, height, leftPosition, topPosition;
+            link = $el.data('link') || window.location.href;
 
             if ( this.options.facebook.appID ) {
 
-                obj = {
+                var obj = {
                     method: 'feed',
                     link: link,
                     picture: $el.data('image') || '',
@@ -72,32 +96,48 @@
 
                 width = 640;
                 height = 320;
-                leftPosition = ( screen.width / 2 ) - ( width / 2 );
-                topPosition = ( screen.height / 2 ) - ( height / 2 );
+                pos = newPosition(width, height);
 
                 url = 'https://www.facebook.com/sharer/sharer.php?u=';
                 url += encodeURIComponent( link );
-                window.open(url, 'fbshare', 'width='+width+', height='+height+', top='+topPosition+', left='+leftPosition+', menubar=no, status=no, toolbar=no, ');
+
+                window.open(url, 'fbshare', 'width='+width+', height='+height+', top='+pos.top+', left='+pos.left+', menubar=no, status=no, toolbar=no, ');
 
             }
 
         },
         twitter: function( $el ) {
 
-            var url;
-            var link = ( $el.data('link') ) ? $el.data('link') : window.location.href;
-            var title = ( $el.data('title') ) ? $el.data('title') : document.title;
-            var via = ( this.options.twitter.handle ) ? '&via=' + this.options.twitter.handle : '';
+            var via, hashtags;
 
-            var width = 550;
-            var height = 450;
-            var leftPosition = ( screen.width / 2 ) - ( width / 2 );
-            var topPosition = ( screen.height / 2 ) - ( height / 2 );
+            link = ( $el.data('link') ) ? $el.data('link') : window.location.href;
+            title = ( $el.data('title') ) ? $el.data('title') : document.title;
+
+            via = ( this.options.twitter.handle ) ? '&via=' + this.options.twitter.handle : '';
+            hashtags = ( $el.data('hashtags') ) ? '&hashtags=' + $el.data('hashtags') : '';
+
+            width = 550;
+            height = 450;
+            pos = newPosition(width, height);
 
             url = 'https://twitter.com/share?url=' + encodeURIComponent( link ) +
-                '&text=' + encodeURIComponent( title ) + via;
+                '&text=' + encodeURIComponent( title )  + via + hashtags;
 
-            window.open(url, 'twshare', 'width='+width+', height='+height+', top='+topPosition+', left='+leftPosition+', menubar=no, status=no, toolbar=no, ');
+            window.open(url, 'twshare', 'width='+width+', height='+height+', top='+pos.top+', left='+pos.left+', menubar=no, status=no, toolbar=no, ');
+
+        },
+        googleplus: function ( $el ) {
+
+            link = ( $el.data('link') ) ? $el.data('link') : window.location.href;
+            title = ( $el.data('title') ) ? $el.data('title') : document.title;
+
+            width = 600;
+            height = 540;
+            pos = newPosition(width, height);
+
+            url = 'https://plus.google.com/share?url=' + encodeURIComponent( link );
+
+            window.open(url, 'gpshare', 'width='+width+', height='+height+', top='+pos.top+', left='+pos.left+', menubar=no, status=no, toolbar=no, ');
 
         },
         events: function() {
@@ -113,6 +153,7 @@
                 switch ( $el.data('share') ) {
                     case 'facebook': self.facebook( $el ); break;
                     case 'twitter': self.twitter( $el ); break;
+                    case 'googleplus': self.googleplus( $el ); break;
                 }
 
                 $el.blur();
