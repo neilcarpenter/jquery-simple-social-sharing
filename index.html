@@ -3,24 +3,44 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Super simple social sharings with jQueries demo</title>
+	<link rel="stylesheet" href="http://neilcarpenter.github.com/stylesheets/stylesheet.css">
 </head>
 <body>
 
-	<h1>Super simple social sharings with jQueries demo</h1>
+	<!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/neilcarpenter/jquery-simple-social-sharing">View on GitHub</a>
 
-	<p><a href="https://github.com/neilcarpenter/jquery-simple-social-sharing" target="_blank">Github linkz here.</a></p>
+          <h1 id="project_title">Super simple social sharings with jQueries</h1>
+          <h2 id="project_tagline">Because popups</h2>
 
-	<section>
+        </header>
+    </div>
 
-		<ul class="sharers">
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        
+        <ul class="sharers">
 			<li><a data-share="facebook" data-title="Check this, yo" data-link="http://gizoogle.net" data-description="Nice, very nice" href="https://www.facebook.com/sharer/sharer.php?u=gizoogle.net" target="_blank">Oh hai Facebook</a></li>
 			<li><a data-share="twitter" data-title="Check this, yo" data-link="http://gizoogle.net" data-hashtags="cowabunga,gnarly" href="https://www.twitter.com/share?url=http://www.gizoogle.net/" target="_blank">Oh hai Twitter</a></li>
 			<li><a data-share="googleplus" data-title="Check this, yo" data-link="http://gizoogle.net" href="https://plus.google.com/share?url=http://www.gizoogle.net/" target="_blank">Oh hai Google Plus</a></li>
 		</ul>
+		
+		<p>Check the repo <a href="https://github.com/neilcarpenter/jquery-simple-social-sharing">here</a>.</p>
+		
+      </section>
+    </div>
 
-	</section>
-
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p>Theme from <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 	<script src="https://raw.github.com/neilcarpenter/jquery-simple-social-sharing/master/jquery.socialSharers.js"></script>
 
 	<script>
