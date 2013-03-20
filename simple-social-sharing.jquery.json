@@ -1,0 +1,38 @@
+{
+    "name": "simple-social-sharing",
+    "title": "jQuery Simple Social Sharing",
+    "description": "jQuery plugin for social sharing using popup windows",
+    "keywords": [
+        "social",
+        "sharing",
+        "popup",
+        "twitter",
+        "facebook",
+        "googleplus"
+    ],
+    "version": "0.1.0",
+    "author": {
+        "name": "Neil Carpenter",
+        "url": "http://neilcarpenter.com"
+    },
+    "maintainers": [
+        {
+            "name": "Neil Carpenter",
+            "email": "neilanthonycarpenter@gmail.com",
+            "url": "http://neilcarpenter.com"
+        }
+    ],
+    "licenses": [
+        {
+            "type": "MIT",
+            "url": "https://github.com/neilcarpenter/jquery-simple-social-sharing/blob/master/LICENSE.txt"
+        }
+    ],
+    "bugs": "https://github.com/neilcarpenter/jquery-simple-social-sharing/issues",
+    "homepage": "https://github.com/neilcarpenter/jquery-simple-social-sharing",
+    "docs": "https://github.com/neilcarpenter/jquery-simple-social-sharing",
+    "download": "https://github.com/neilcarpenter/jquery-simple-social-sharing/archive/master.zip",
+    "dependencies": {
+        "jquery": ">=1.5"
+    }
+}
