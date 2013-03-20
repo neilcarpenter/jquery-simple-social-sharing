@@ -2,6 +2,8 @@
 
 Just for Twitter, Facebook and Google Plus at the mo, opens up proper share dialog, none of that cheap `sharer.php?url=whatever` crap.
 
+**[Check the demo page here](http://neilcarpenter.github.com/jquery-simple-social-sharing/).**
+
 ## Usage
 
 Mark up yo links as per:
@@ -41,5 +43,3 @@ All content / events are handled through data-* attributes on the links themselv
 - data-image => Picture to share (fb only)
 - data-description => Share text (fb only)
 - data-hashtags => Comma-separated list of hashtags (tw only)
-
-**Check `demo.html` for working example.**
