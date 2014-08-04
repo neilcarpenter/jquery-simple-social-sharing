@@ -144,7 +144,7 @@
 
             var self = this;
 
-            this.element.on('click', 'a', function( e ) {
+            this.element.on('click', 'a[data-share]', function( e ) {
 
                 e.preventDefault();
 
